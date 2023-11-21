@@ -18,7 +18,7 @@
                 inputArray = EnterArrayFromConsole();
                 break;
             case 2:
-                inputArray = new string[] { "12", "mather", "good", "cat", "dog", "mouse", "fox", "1" }; // Измените массив по своему усмотрению
+                inputArray = new string[] { "12", "мама", "рама", "кот", "сто", "кит", "лом", "1", "крот" }; // Измените массив по своему усмотрению
                 break;
             default:
                 Console.WriteLine("Некорректный выбор.");
@@ -37,7 +37,7 @@
     static string[] EnterArrayFromConsole()
     {
         Console.Write("Введите размер массива строк: ");
-        if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0 || size >= 11)
+        if (!int.TryParse(Console.ReadLine(), out int size) || size < 1 || size >= 11)
         {
             Console.WriteLine("Некорректный ввод размера массива. Введите от 1 до 10");
             Environment.Exit(0);
