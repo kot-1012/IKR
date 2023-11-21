@@ -1,12 +1,6 @@
-﻿using System;
+﻿        string[] inputArray;
 
-class Program
-{
-    static void Main()
-    {
-        string[] inputArray;
-
-        // Выбор способа задания массива (с клавиатуры или на старте программы)
+        // Выбор способа задания массива
         Console.WriteLine("Выберите способ задания массива:");
         Console.WriteLine("1. Ввести с клавиатуры");
         Console.WriteLine("2. Задать на старте программы");
@@ -21,35 +15,31 @@ class Program
         switch (choice)
         {
             case 1:
-                // Ввод массива с клавиатуры
                 inputArray = EnterArrayFromConsole();
                 break;
             case 2:
-                // Задание массива на старте программы
-                inputArray = new string[] { "apple", "banana", "cat", "dog", "elephant", "fox" }; // Измените массив по своему усмотрению
+                inputArray = new string[] { "12", "mather", "good", "cat", "dog", "mouse", "fox", "1" }; // Измените массив по своему усмотрению
                 break;
             default:
                 Console.WriteLine("Некорректный выбор.");
                 return;
         }
 
-        // Фильтрация массива строк
         string[] filteredArray = FilterStrings(inputArray);
 
-        // Вывод отфильтрованного массива
         Console.WriteLine("\nОтфильтрованный массив:");
         foreach (string str in filteredArray)
         {
             Console.WriteLine(str);
         }
-    }
+    
 
     static string[] EnterArrayFromConsole()
     {
         Console.Write("Введите размер массива строк: ");
-        if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0)
+        if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0 || size >= 11)
         {
-            Console.WriteLine("Некорректный ввод размера массива.");
+            Console.WriteLine("Некорректный ввод размера массива. Введите от 1 до 10");
             Environment.Exit(0);
         }
 
@@ -69,7 +59,6 @@ class Program
     {
         int count = 0;
 
-        // Подсчет количества строк, удовлетворяющих условию
         foreach (string str in inputArray)
         {
             if (str.Length <= 3)
@@ -78,10 +67,8 @@ class Program
             }
         }
 
-        // Создание нового массива нужного размера
         string[] filteredArray = new string[count];
 
-        // Заполнение нового массива строками, удовлетворяющими условию
         int index = 0;
         foreach (string str in inputArray)
         {
@@ -94,4 +81,4 @@ class Program
 
         return filteredArray;
     }
-}
+
