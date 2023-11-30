@@ -36,11 +36,13 @@
 
     static string[] EnterArrayFromConsole()
     {
+        Found:
         Console.Write("Введите размер массива строк: ");
         if (!int.TryParse(Console.ReadLine(), out int size) || size < 1 || size >= 11)
         {
             Console.WriteLine("Некорректный ввод размера массива. Введите от 1 до 10");
-            Environment.Exit(0);
+            goto Found;
+            //Environment.Exit(0);
         }
 
         string[] inputArray = new string[size];
